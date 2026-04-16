@@ -1,10 +1,15 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Loader from "./components/ui/Loader";
+import Navbar from "./components/layout/Navbar";
+import FooterModern from "./components/layout/FooterModern";
+import CustomCursor from "./components/ui/CustomCursor";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { pageTransition } from "@/animations/framer/variants";
 
 const queryClient = new QueryClient();
 const Index = lazy(() => import("./pages/Index"));
@@ -36,15 +41,33 @@ const AnimatedRoutes = () => {
 const App = () => {
   const [showLoader, setShowLoader] = useState(true);
   const [isModelLoaded, setIsModelLoaded] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  const isMobile = useIsMobile();
+  const prefersReducedMotion = useReducedMotion();
+  const enableInteractiveFx = !isMobile && !prefersReducedMotion;
 
   useEffect(() => {
+    if (!isHomePage) {
+      setIsModelLoaded(true);
+      return;
+    }
+
     const handleModelReady = () => {
       setIsModelLoaded(true);
     };
 
     window.addEventListener("hero-model-ready", handleModelReady);
-    return () => window.removeEventListener("hero-model-ready", handleModelReady);
-  }, []);
+    
+    const safetyTimeout = setTimeout(() => {
+      setIsModelLoaded(true);
+    }, 3000);
+
+    return () => {
+      window.removeEventListener("hero-model-ready", handleModelReady);
+      clearTimeout(safetyTimeout);
+    };
+  }, [isHomePage]);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -53,24 +76,25 @@ const App = () => {
           {showLoader && (
             <Loader 
               key="loader" 
-              onFinished={() => {
-                // If model is already loaded, we can hide loader immediately
-                // Otherwise, Loader component should ideally wait or we handle it here
-                if (isModelLoaded) {
-                  setShowLoader(false);
-                }
-              }} 
-              // Pass the model loaded state to the loader so it can decide when to finish
+              onFinished={() => setShowLoader(false)} 
               isReady={isModelLoaded}
             />
           )}
         </AnimatePresence>
         
-        <div style={{ visibility: showLoader ? "hidden" : "visible" }}>
-          <Toaster />
-          <BrowserRouter>
+        <div 
+          className={`min-h-screen flex flex-col ${enableInteractiveFx ? "cursor-none" : ""}`}
+          style={{ visibility: showLoader ? "hidden" : "visible" }}
+        >
+          {enableInteractiveFx && <CustomCursor />}
+          <Navbar />
+          
+          <div className="flex-1">
             <AnimatedRoutes />
-          </BrowserRouter>
+          </div>
+
+          <FooterModern />
+          <Toaster />
         </div>
       </TooltipProvider>
     </QueryClientProvider>

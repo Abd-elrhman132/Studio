@@ -122,15 +122,6 @@
 }
 
 @layer components {
-  .grain-overlay {
-    display: none;
-  }
-
-  .light-ray,
-  .light-pane,
-  .horizon-line {
-    display: none;
-  }
 }
 
 @layer utilities {
@@ -192,48 +183,6 @@
   }
 }
 
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  50% {
-    transform: translate3d(0, -24px, 0) scale(1.05);
-  }
-}
-
-@keyframes grain-shift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  25% {
-    transform: translate3d(-3%, 2%, 0);
-  }
-
-  50% {
-    transform: translate3d(2%, -2%, 0);
-  }
-
-  75% {
-    transform: translate3d(3%, 1%, 0);
-  }
-}
-
-@media (max-width: 767px) {
-  .light-ray,
-  .horizon-line {
-    display: none;
-  }
-
-  body::after {
-    opacity: 0.16;
-    background-size: 72px 72px;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -247,11 +196,4 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
-  .grain-overlay,
-  .pane-1,
-  .pane-2 {
-    animation: none !important;
-  }
 }
-

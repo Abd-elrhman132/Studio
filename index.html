@@ -7,6 +7,31 @@
     <meta name="description" content="A multidisciplinary design studio crafting refined digital experiences focused on clarity, performance, and aesthetic precision." />
     <meta name="author" content="Studio" />
 
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem("theme");
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = savedTheme === "dark" || (!savedTheme && systemPrefersDark);
+        
+        if (isDark) {
+          document.documentElement.classList.add("dark");
+          document.documentElement.style.backgroundColor = "#020205";
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.style.backgroundColor = "#f8f8fb";
+        }
+      })();
+    </script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      /* Fallback for very early paint */
+      html { background-color: #f8f8fb; }
+      html.dark { background-color: #020205; }
+    </style>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
