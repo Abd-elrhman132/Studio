@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Studio Showcase
 
-TODO: Document your project here
+A project showcasing various studio works.

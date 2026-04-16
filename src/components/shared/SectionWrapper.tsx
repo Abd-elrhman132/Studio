@@ -8,7 +8,7 @@ interface SectionWrapperProps {
 
 const SectionWrapper = ({ children, className = "", id }: SectionWrapperProps) => {
   return (
-    <section id={id} className={`py-16 md:py-24 ${className}`}>
+    <section id={id} className={`section-padding ${className}`}>
       <div className="container">{children}</div>
     </section>
   );

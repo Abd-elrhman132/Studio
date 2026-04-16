@@ -19,7 +19,8 @@ export const projects: Project[] = [
     title: "Aurora Branding",
     category: "Branding",
     description: "Complete brand identity for a luxury wellness startup",
-    thumbnail: "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80",
+    thumbnail:
+      "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80",
     images: [
       "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1200&q=80",
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80",
@@ -35,7 +36,8 @@ export const projects: Project[] = [
     title: "Monolith Editorial",
     category: "Print",
     description: "Art-directed editorial spreads for architecture magazine",
-    thumbnail: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+    thumbnail:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
     images: [
       "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80",
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
@@ -51,7 +53,8 @@ export const projects: Project[] = [
     title: "Pulse App",
     category: "Digital",
     description: "UI/UX design for a fitness tracking mobile app",
-    thumbnail: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80",
+    thumbnail:
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80",
     images: [
       "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&q=80",
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80",
@@ -67,7 +70,8 @@ export const projects: Project[] = [
     title: "Terroir Packaging",
     category: "Packaging",
     description: "Premium packaging design for an artisan chocolate brand",
-    thumbnail: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800&q=80",
+    thumbnail:
+      "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800&q=80",
     images: [
       "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=1200&q=80",
       "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=1200&q=80",
@@ -83,7 +87,8 @@ export const projects: Project[] = [
     title: "Nocturn Identity",
     category: "Branding",
     description: "Visual identity for an underground music collective",
-    thumbnail: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
+    thumbnail:
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
     images: [
       "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80",
       "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&q=80",
@@ -99,7 +104,8 @@ export const projects: Project[] = [
     title: "Forma Website",
     category: "Digital",
     description: "Corporate website redesign for a design studio",
-    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    thumbnail:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     images: [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
       "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80",

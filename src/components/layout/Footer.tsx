@@ -2,28 +2,28 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div>
-            <Link to="/" className="font-heading text-xl font-semibold tracking-tight text-foreground">
-              studio<span className="text-primary">.</span>
+    <footer className="bg-background relative overflow-hidden">
+      <div className="container py-24 md:py-32">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-8">
+          <div className="md:col-span-2">
+            <Link to="/" className="font-heading text-3xl font-bold tracking-tighter text-foreground group">
+              studio<span className="text-primary group-hover:animate-pulse">.</span>
             </Link>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Crafting visual experiences with precision and purpose.
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-sm font-light">
+              Crafting visual experiences that resonate with clarity, precision and purpose.
             </p>
           </div>
 
           <div>
-            <h4 className="font-heading text-sm font-semibold text-foreground mb-4 tracking-wide uppercase">
+            <h4 className="font-heading text-xs font-bold text-foreground mb-8 tracking-[0.3em] uppercase">
               Navigation
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-4">
               {["Home", "Portfolio", "About", "Contact"].map((item) => (
                 <li key={item}>
                   <Link
                     to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block"
                   >
                     {item}
                   </Link>
@@ -33,15 +33,15 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-heading text-sm font-semibold text-foreground mb-4 tracking-wide uppercase">
+            <h4 className="font-heading text-xs font-bold text-foreground mb-8 tracking-[0.3em] uppercase">
               Connect
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-4">
               {["Dribbble", "Behance", "LinkedIn", "Instagram"].map((item) => (
                 <li key={item}>
                   <a
                     href="#"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block"
                   >
                     {item}
                   </a>
@@ -51,13 +51,18 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
+        <div className="mt-24 pt-12 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-xs text-muted-foreground tracking-widest uppercase">
             © {new Date().getFullYear()} Studio. All rights reserved.
           </p>
-          <p className="text-xs text-muted-foreground">
-            Designed with intention.
-          </p>
+          <div className="flex gap-8">
+             <p className="text-xs text-muted-foreground tracking-widest uppercase">
+              Privacy Policy
+            </p>
+            <p className="text-xs text-muted-foreground tracking-widest uppercase">
+              Terms of Service
+            </p>
+          </div>
         </div>
       </div>
     </footer>
